@@ -9,7 +9,7 @@ You can build docker-compose (in project's root directory):
 docker compose -f 'docker-compose.yaml' build
 ```
 
-Then you can run conteiners:
+Then you can run containers:
 ```sh
 docker compose up
 ```
