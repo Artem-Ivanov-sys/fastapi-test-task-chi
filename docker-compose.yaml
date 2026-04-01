@@ -1,0 +1,21 @@
+volumes:
+  postgres_data:
+services:
+  db_postgres:
+    image: postgres:15
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB}
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+    volumes:
+      - postgres_data:/var/lib/postgres/postgres_data
+    ports:
+      - "5432:5432"
+  backend:
+    build: ./backend
+    depends_on:
+      - db_postgres
+    env_file:
+      - .env
+    ports:
+      - "8000:8000"

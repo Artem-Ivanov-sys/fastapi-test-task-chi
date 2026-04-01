@@ -1,0 +1,1 @@
+docker compose exec backend sh db_init.sh 
